@@ -1,0 +1,74 @@
+-- 02_update_samples.sql
+-- 각 테이블별 10개의 샘플 데이터를 수정합니다. (트리거를 통한 updated_at 정상 갱신 확인용)
+
+-- 1. Users 데이터 수정 (비밀번호 변경 등 10명)
+UPDATE users SET password = 'new_password_1' WHERE id = 'a0000000-0000-0000-0000-000000000001';
+UPDATE users SET name = '김현준' WHERE id = 'a0000000-0000-0000-0000-000000000002';
+UPDATE users SET password = 'new_password_3' WHERE id = 'a0000000-0000-0000-0000-000000000003';
+UPDATE users SET email = 'jiwon.new@example.com' WHERE id = 'a0000000-0000-0000-0000-000000000004';
+UPDATE users SET password = 'new_password_5' WHERE id = 'a0000000-0000-0000-0000-000000000005';
+UPDATE users SET password = 'new_password_6' WHERE id = 'a0000000-0000-0000-0000-000000000006';
+UPDATE users SET name = '조승우' WHERE id = 'a0000000-0000-0000-0000-000000000007';
+UPDATE users SET password = 'new_password_8' WHERE id = 'a0000000-0000-0000-0000-000000000008';
+UPDATE users SET email = 'doyoon.new@example.com' WHERE id = 'a0000000-0000-0000-0000-000000000009';
+UPDATE users SET password = 'new_password_10' WHERE id = 'a0000000-0000-0000-0000-000000000010';
+
+-- 2. Products 데이터 수정 (재고 및 가격 변경 10개)
+UPDATE products SET stock = stock + 50 WHERE id = 'b0000000-0000-0000-0000-000000000001';
+UPDATE products SET price = 80000.00 WHERE id = 'b0000000-0000-0000-0000-000000000002';
+UPDATE products SET description = '업그레이드된 마우스' WHERE id = 'b0000000-0000-0000-0000-000000000003';
+UPDATE products SET stock = stock - 10 WHERE id = 'b0000000-0000-0000-0000-000000000004';
+UPDATE products SET price = 240000.00 WHERE id = 'b0000000-0000-0000-0000-000000000005';
+UPDATE products SET stock = stock + 100 WHERE id = 'b0000000-0000-0000-0000-000000000006';
+UPDATE products SET description = 'IP68 방수등급 추가' WHERE id = 'b0000000-0000-0000-0000-000000000007';
+UPDATE products SET price = 22000.00 WHERE id = 'b0000000-0000-0000-0000-000000000008';
+UPDATE products SET stock = stock - 20 WHERE id = 'b0000000-0000-0000-0000-000000000009';
+UPDATE products SET price = 70000.00 WHERE id = 'b0000000-0000-0000-0000-000000000010';
+
+-- 3. Carts 데이터 수정 (수량 조절 10건)
+UPDATE carts SET quantity = 3 WHERE id = 'f0000000-0000-0000-0000-000000000001';
+UPDATE carts SET quantity = 1 WHERE id = 'f0000000-0000-0000-0000-000000000002';
+UPDATE carts SET quantity = 2 WHERE id = 'f0000000-0000-0000-0000-000000000003';
+UPDATE carts SET quantity = 4 WHERE id = 'f0000000-0000-0000-0000-000000000004';
+UPDATE carts SET quantity = 5 WHERE id = 'f0000000-0000-0000-0000-000000000005';
+UPDATE carts SET quantity = 1 WHERE id = 'f0000000-0000-0000-0000-000000000006';
+UPDATE carts SET quantity = 2 WHERE id = 'f0000000-0000-0000-0000-000000000007';
+UPDATE carts SET quantity = 3 WHERE id = 'f0000000-0000-0000-0000-000000000008';
+UPDATE carts SET quantity = 1 WHERE id = 'f0000000-0000-0000-0000-000000000009';
+UPDATE carts SET quantity = 4 WHERE id = 'f0000000-0000-0000-0000-000000000010';
+
+-- 4. Orders 데이터 수정 (상태 변경 10건)
+UPDATE orders SET status = '결제 대기중' WHERE id = 'c0000000-0000-0000-0000-000000000001';
+UPDATE orders SET status = '결제 완료' WHERE id = 'c0000000-0000-0000-0000-000000000002';
+UPDATE orders SET status = '결제 완료' WHERE id = 'c0000000-0000-0000-0000-000000000003';
+UPDATE orders SET status = '결제 취소' WHERE id = 'c0000000-0000-0000-0000-000000000004';
+UPDATE orders SET status = '결제 완료' WHERE id = 'c0000000-0000-0000-0000-000000000005';
+UPDATE orders SET status = '결제 대기중' WHERE id = 'c0000000-0000-0000-0000-000000000006';
+UPDATE orders SET status = '배송 준비중' WHERE id = 'c0000000-0000-0000-0000-000000000007';
+UPDATE orders SET status = '배송 완료' WHERE id = 'c0000000-0000-0000-0000-000000000008';
+UPDATE orders SET status = '환불 완료' WHERE id = 'c0000000-0000-0000-0000-000000000009';
+UPDATE orders SET status = '결제 완료' WHERE id = 'c0000000-0000-0000-0000-000000000010';
+
+-- 5. Order Items 데이터 수정 (주문수량/가격변동 등 10건)
+UPDATE order_items SET quantity = 2, unit_price = 145000.00 WHERE id = 'e0000000-0000-0000-0000-000000000001';
+UPDATE order_items SET quantity = 3 WHERE id = 'e0000000-0000-0000-0000-000000000002';
+UPDATE order_items SET unit_price = 55000.00 WHERE id = 'e0000000-0000-0000-0000-000000000003';
+UPDATE order_items SET quantity = 2 WHERE id = 'e0000000-0000-0000-0000-000000000004';
+UPDATE order_items SET unit_price = 240000.00 WHERE id = 'e0000000-0000-0000-0000-000000000005';
+UPDATE order_items SET quantity = 4 WHERE id = 'e0000000-0000-0000-0000-000000000006';
+UPDATE order_items SET unit_price = 40000.00 WHERE id = 'e0000000-0000-0000-0000-000000000007';
+UPDATE order_items SET quantity = 2 WHERE id = 'e0000000-0000-0000-0000-000000000008';
+UPDATE order_items SET unit_price = 30000.00 WHERE id = 'e0000000-0000-0000-0000-000000000009';
+UPDATE order_items SET quantity = 3 WHERE id = 'e0000000-0000-0000-0000-000000000010';
+
+-- 6. Payments 데이터 수정 (결제 완료 처리 등 10건, orders와 상태 동기화)
+UPDATE payments SET status = '결제 대기중' WHERE id = 'd0000000-0000-0000-0000-000000000001';
+UPDATE payments SET status = '결제 완료', paid_at = CURRENT_TIMESTAMP WHERE id = 'd0000000-0000-0000-0000-000000000002';
+UPDATE payments SET status = '결제 완료', paid_at = CURRENT_TIMESTAMP WHERE id = 'd0000000-0000-0000-0000-000000000003';
+UPDATE payments SET status = '결제 취소' WHERE id = 'd0000000-0000-0000-0000-000000000004';
+UPDATE payments SET status = '결제 완료', paid_at = CURRENT_TIMESTAMP WHERE id = 'd0000000-0000-0000-0000-000000000005';
+UPDATE payments SET status = '결제 대기중' WHERE id = 'd0000000-0000-0000-0000-000000000006';
+UPDATE payments SET status = '결제 완료' WHERE id = 'd0000000-0000-0000-0000-000000000007';
+UPDATE payments SET status = '결제 완료' WHERE id = 'd0000000-0000-0000-0000-000000000008';
+UPDATE payments SET status = '환불 완료' WHERE id = 'd0000000-0000-0000-0000-000000000009';
+UPDATE payments SET status = '결제 완료', paid_at = CURRENT_TIMESTAMP WHERE id = 'd0000000-0000-0000-0000-000000000010';
